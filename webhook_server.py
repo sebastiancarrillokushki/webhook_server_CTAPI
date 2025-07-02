@@ -8,6 +8,7 @@ app = Flask(__name__)
 def webhook():
     try:
         data = request.get_json(silent=True)
+        print("Webhook recibido:", data)  # Log para Render
         if data:
             tipo = data.get("transactionType", "").lower()
             if tipo == "devolucion":
