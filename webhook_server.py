@@ -16,9 +16,9 @@ def webhook():
                 ruta_archivo = os.path.abspath("estado_trx.json")
             with open(ruta_archivo, "w") as f:
                 json.dump(data, f)
-        return "", 200
     except Exception as e:
-        return "Error interno", 500
+        pass  # Ignora cualquier error
+    return "", 200  # Siempre responde 200
 
 @app.route("/get-estado", methods=["GET"])
 def get_estado():
